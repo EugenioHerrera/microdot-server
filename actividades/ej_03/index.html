@@ -1,86 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FANIOT - Control Panel</title>
+    <title>Pizzería Don Napo</title>
     <link rel="stylesheet" href="styles/base.css">
 </head>
-
 <body>
     <header>
         <div class="overlay"></div>
-        <h1>FANIOT ESP32</h1>
+        <h1>PIZZERÍA DON NAPO</h1>
         <nav>
             <ul>
-                <li><a href="#LEDS" aria-label="Ir a LEDS">LEDS Y TIRAS</a></li>
-                <li><a href="#TEMPERATURA" aria-label="Ir a Temperatura">TEMPERATURA</a></li>
+                <li>QUIÉNES SOMOS</li>
+                <li>EL LOCAL</li>
+                <li>MENÚ</li>
+                <li>ENCARGAR</li>
+                <li>DESCUENTOS</li>
+                <li>EVENTOS</li>
+                <li>DELIVERY</li>
+                <li>RESERVAR</li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="LEDS" class="leds-control-section">
-            <h2>Control de LEDs y Tiras</h2>
-
-            <div class="individual-leds-control">
-                <h3>LEDs</h3>
-                <div class="botones-leds">
-                    <button class="led-button" data-led-id="1">LED1</button>
-                    <button class="led-button" data-led-id="2">LED2</button>
-                    <button class="led-button" data-led-id="3">LED3</button>
-                </div>
-            </div>
-
-            <!-- Control Global RGB (fuera de las tiras individuales) -->
-            <div class="rgb-global-control">
-                <h3>Control Global RGB</h3>
-                <div class="slider-group">
-                    <label for="redRange">Rojo: <span class="slider-value" id="redValue">0</span></label>
-                    <input type="range" id="redRange" min="0" max="255" value="0">
-                </div>
-
-                <div class="slider-group">
-                    <label for="greenRange">Verde: <span class="slider-value" id="greenValue">0</span></label>
-                    <input type="range" id="greenRange" min="0" max="255" value="0">
-                </div>
-
-                <div class="slider-group">
-                    <label for="blueRange">Azul: <span class="slider-value" id="blueValue">0</span></label>
-                    <input type="range" id="blueRange" min="0" max="255" value="0">
-                </div>
-                <div class="color-preview" id="rgb-global-preview"></div>
-                <button id="apply-global-rgb" class="apply-tira-button">Aplicar color global</button>
-            </div>
+        <section class="info-section izquierda">
+            <h2>Recetas de Familia</h2>
+            <p>Desde hace más de 30 años, en Don Napo hacemos pizzas caseras con masa madre, salsa de tomate natural y mucho queso.</p>
+            <img src="https://images.unsplash.com/photo-1601925261444-7fbb49fa9c13?q=80&w=3540&auto=format&fit=crop" alt="Pizza clásica">
         </section>
 
-        <section id="TEMPERATURA" class="temperatura-control-section">
-            <h2>Control de Temperatura</h2>
-            <div class="setpoint-group">
-                <label for="setpointRange">Setpoint: <span id="setpointValue">20</span> °C</label>
-                <input type="range" id="setpointRange" min="0" max="30" value="20">
-            </div>
-            <div class="sensor-group">
-                <label>Temperatura actual: <span id="sensorTemp">--</span> °C</label>
-            </div>
-            <div class="buzzer-group">
-                <label>Estado del buzzer: <span id="buzzerStatus">--</span></label>
-            </div>
+        <section class="info-section derecha">
+            <h2>Ambiente Familiar</h2>
+            <p>Te esperamos con un ambiente cálido y simple, ideal para venir con amigos, familia o en pareja a disfrutar de una buena pizza al horno de piedra.</p>
+            <img src="https://images.unsplash.com/photo-1585238341986-4c1ee0dfb79b?q=80&w=3425&auto=format&fit=crop" alt="Interior pizzería">
         </section>
     </main>
 
     <footer>
-        <p>Representación Frontal y Visual de Datos</p>
-        <p>Computadoras de Aeronaves</p>
-        <p>Alumno Lesme Franco, Poggi Lorenzo y Albornoz Thiago</p>
-        <p>Prof. Carlassara Fabrizio</p>
-        <p id="fecha"></p>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>Don Napo</h3>
+                <p>Pizza de verdad, desde siempre.</p>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Menú</a></li>
+                    <li><a href="#">Reservas</a></li>
+                    <li><a href="#">Eventos</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <p>Seguinos:</p>
+                <div class="icons">
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="Facebook"></a>
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/733/733558.png" alt="Instagram"></a>
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/733/733579.png" alt="Twitter"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Don Napo. Todos los derechos reservados.</p>
+            <p id="fecha"></p>
+        </div>
     </footer>
 
     <script src="scripts/base.js"></script>
-    <script src="scripts/script.js"></script>
-
 </body>
-
 </html>
