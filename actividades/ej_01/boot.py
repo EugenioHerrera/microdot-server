@@ -1,22 +1,29 @@
+# Configuracion inicial
+def connect_to(ssid : "Cooperadora_Alumnos", passwd : "") -> None:
 
-import esp
-esp.osdebug(None)     
+    """Conecta el microcontrolador a la red indicada.
 
-import gc
-gc.collect()          
-
-import network
-from time import sleep
-
-def connect_to(ssid: str, passwd: str) -> str:
+    Parameters
+    ----------
+    ssid : str
+        Nombre de la red a conectarse
+    passwd : str
+        Contraseña de la red
     """
-    Conecta el ESP32 a la red Wi-Fi indicada y devuelve la IP asignada.
-    """
-    sta = network.WLAN(network.STA_IF)
-    if not sta.active():
-        sta.active(True)
-    if not sta.isconnected():
-        sta.connect(ssid, passwd)
-        while not sta.isconnected():
-            sleep(0.05)
-    return sta.ifconfig()[0]
+    
+    import network
+    from time import sleep
+    
+    sta_if = network.WLAN(network.STA_IF)
+    if not sta_if.isconnected():
+        print("Connecting to network...")
+        sta_if.active(True)
+        sta_if.connect(ssid, passwd)
+        while not sta_if.isconnected():
+            print(".",end="")
+            sleep(.05)
+
+    ip = sta_if.ifconfig()[0]
+    print("\nConectado. Dirección IP:", ip)
+    
+connect_to("Cooperadora Alumnos", "")
