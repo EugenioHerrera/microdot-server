@@ -3,14 +3,14 @@ function led_toggle(led){
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Botones de LED individuales
+    
     document.querySelectorAll(".led-button").forEach(button => {
         button.addEventListener("click", (e) => {
             led_toggle(e.target.dataset.ledId);
         });
     });
 
-    // Sliders RGB
+
     document.getElementById('redRange').addEventListener('input', updateRGBPreview);
     document.getElementById('greenRange').addEventListener('input', updateRGBPreview);
     document.getElementById('blueRange').addEventListener('input', updateRGBPreview);
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     updateRGBPreview();
 
-    // Setpoint
+   
     const setpointRange = document.getElementById('setpointRange');
     const setpointValue = document.getElementById('setpointValue');
     if(setpointRange && setpointValue) {
@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function () {
             fetch(`/setpoint/${setpointRange.value}`, { method: 'POST' });
         });
     }
+
     
-    // Actualiza Temperatura y el Buzzer.
     function refreshTempAndBuzzer() {
         fetch('/sensor/temperature')
             .then(res => res.json())
